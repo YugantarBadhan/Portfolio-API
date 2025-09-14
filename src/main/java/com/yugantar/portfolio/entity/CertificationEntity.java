@@ -30,6 +30,7 @@ public class CertificationEntity {
 	private String title;
 
 	@NotBlank(message = "Description cannot be blank")
+	@Column(columnDefinition = "TEXT") // Change from varchar(255) to TEXT
 	private String description;
 
 	@NotBlank(message = "Month and Year cannot be blank")
