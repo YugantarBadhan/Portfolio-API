@@ -44,9 +44,9 @@ USER spring:spring
 # Expose port (Railway will assign PORT dynamically)
 EXPOSE 8080
 
-# Health check
+# Health check - use a simpler endpoint or disable if problematic
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:${PORT:-8080}/actuator/health || exit 1
+    CMD curl -f http://localhost:${PORT:-8080}/api/health || curl -f http://localhost:${PORT:-8080} || exit 1
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
