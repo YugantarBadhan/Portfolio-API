@@ -1,5 +1,5 @@
-# Use Maven with OpenJDK 17 for building
-FROM maven:3.9.6-openjdk-17-slim AS build
+# Use a base image with Maven and JDK pre-installed
+FROM maven:3.9.2-eclipse-temurin-17-alpine AS build
 
 # Set working directory
 WORKDIR /app
